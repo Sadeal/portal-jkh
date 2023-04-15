@@ -13,7 +13,7 @@ class AccountEditController extends BaseTwigController
         $login = $_SESSION['login'];
 
         $sql = <<<EOL
-SELECT name, account, city, address, email, phone
+SELECT name, city, address, email, phone
 FROM users
 WHERE login = :login
 EOL;
@@ -34,7 +34,6 @@ EOL;
     {
 
         $name = $_POST['name'];
-        $account = $_POST['account'];
         $city = $_POST['city'];
         $address = $_POST['address'];
         $email = $_POST['email'];
@@ -42,19 +41,24 @@ EOL;
 
         $sql = <<<EOL
 UPDATE users
-SET name = :name, account = :account, city = :city, address = :address, email = :email, phone = :phone
+SET name = :name, city = :city, address = :address, email = :email, phone = :phone
 WHERE login = :login
 EOL;
 
         $query = $this->pdo->prepare($sql);
         $query->bindvalue("name", $name);
         $query->bindValue("login", $_SESSION['login']);
-        $query->bindvalue("account", $account);
         $query->bindvalue("city", $city);
         $query->bindvalue("address", $address);
         $query->bindvalue("email", $email);
         $query->bindvalue("phone", $phone);
         $query->execute();
+
+        $_SESSION['phone'] = $phone;
+        $_SESSION['email'] = $email;
+        $_SESSION['city'] = $city;
+        $_SESSION['address'] = $address;
+        $_SESSION['name'] = $name;
 
         $context['message'] = 'Данные успешно обновлены';
 

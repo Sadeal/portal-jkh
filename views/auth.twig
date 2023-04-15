@@ -27,9 +27,9 @@
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card bg-primary text-white" style="border-radius: 1rem">
           <a
-            class="text-start btn-new mt-2"
+            class="text-start mt-2"
             href="/"
-            style="margin-left: 15; width: fit-content"
+            style="margin-left: 15; width: fit-content; color:white"
             >Вернуться на главную</a
           >
           <div class="card-body p-5 text-center">
@@ -44,15 +44,18 @@
               </div>
               {% endif %}
               <div class="form-outline form-white mb-4">
+                <label class="form-label" for="typeLoginX">Логин</label>
                 <input
                   type="text"
                   class="form-control form-control-lg"
                   name="login"
                   value="{{ logData }}"
                 />
-                <label class="form-label" for="typeLoginX">Логин</label>
               </div>
 
+              <div>
+                <label class="form-label" for="typePasswordX">Пароль</label>
+              </div>
               <div class="input-group form-outline form-white mb-4">
                 <input
                   id="pass_show"
@@ -71,20 +74,18 @@
                   </span>
                 </div>
               </div>
-              <div>
-                <label class="form-label" for="typePasswordX">Пароль</label>
+              <div class="d-flex flex-column">
+                <button class="btn btn-success btn-lg px-5" type="submit">
+                  Войти
+                </button>
+                <a
+                  class="btn btn-outline-light btn-lg px-5 mt-2"
+                  type="submit"
+                  href="/register"
+                >
+                  Регистрация
+                </a>
               </div>
-
-              <button class="btn btn-success btn-lg px-5" type="submit">
-                Войти
-              </button>
-              <a
-                class="btn btn-outline-light btn-lg px-5 mt-2"
-                type="submit"
-                href="/register"
-              >
-                Зарегистрироваться
-              </a>
             </div>
           </div>
         </div>

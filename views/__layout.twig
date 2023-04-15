@@ -293,17 +293,25 @@
           class="d-flex flex-row justify-content-between"
           style="width: 100%"
         >
-          <a
-            class="navbar-brand"
-            href="/"
-            class="{{ title == 'Главная' ? 'active' : '' }}"
-          >
-            <img
-              src="/images/ico.png"
-              alt=""
-              style="width: 40px; min-width: 40px"
-            />
-          </a>
+          <div>
+            <a
+              class="navbar-brand"
+              href="/"
+              class="{{ title == 'Главная' ? 'active' : '' }}"
+            >
+              <img
+                src="/images/ico.png"
+                alt=""
+                style="width: 40px; min-width: 40px"
+              />
+            </a>
+            <a
+              class="text-del m-2 badge badge-light"
+              href="/"
+              style="text-decoration: none; font-size: 16px"
+            > Единая диспетчерская служба
+            </a>
+          </div>
           <div id="navbarNav">
             <ul class="navbar-nav mr-auto" style="width: 100%">
               <div class="d-flex flex-row" style="display: inline-block">
@@ -321,6 +329,20 @@
         </div>
       </div>
     </nav>
+    <script>
+      const text_delete = document.getElementsByClassName('text-del');
+      if(text_delete[0]){
+        if(window.screen.width<=560 && window.screen.width>=365 ){
+          text_delete[0].textContent = 'ЕДС';
+        } else {
+          if(window.screen.width<365 ){
+            text_delete[0].textContent = '';
+          } else {
+            text_delete[0].textContent = 'Единая диспетчерская служба';
+          }
+        }
+      }
+    </script>
     {% endif %} {% block content %} {% endblock %}
   </body>
   <script>
@@ -362,11 +384,13 @@
       });
     }
 
-    var text = document.getElementsByClassName('text-main ');
-    if(window.screen.width<=380){
-      text[0].textContent = 'ЕДС';
-    } else {
-      text[0].textContent = 'Единая диспетчерская служба';
+    const text_short = document.getElementsByClassName('text-main');
+    if(text_short[0]){
+      if(window.screen.width<=380){
+        text_short[0].textContent = 'ЕДС';
+      } else {
+        text_short[0].textContent = 'Единая диспетчерская служба';
+      }
     }
   </script>
   <style>
@@ -401,7 +425,7 @@
     .btn-new {
       display: inline-block;
       box-sizing: border-box;
-      padding: 4px 15px;
+      padding: 4px 4px;
       margin: 0 15px 15px 0;
       outline: none;
       border: none;
