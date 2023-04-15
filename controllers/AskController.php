@@ -31,7 +31,7 @@ class AskController extends BaseTwigController
 		$email = $result['email'];
 		$name = $result['name'];
 		$account = $result['account'];
-		$date = date('Y-m-d H:i:s', time() + 28800);
+		$date = date('Y-m-d H:i:s', time() + 18000);
 
 		// $tmp_name = $_FILES['image']['tmp_name'];
 		// $name =  $_FILES['image']['name'];

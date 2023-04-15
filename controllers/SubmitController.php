@@ -28,7 +28,7 @@ class SubmitController extends BaseTwigController
 			$city = $_SESSION['city'];
 			$address = $_SESSION['address'];
 			$name = $_SESSION['name'];
-			$date = date('Y-m-d H:i:s', time() + 28800);
+			$date = date('Y-m-d H:i:s', time() + 18000);
 
 			$sql = <<<EOL
 INSERT INTO counts (account, name, hot, cold, city, address, date)

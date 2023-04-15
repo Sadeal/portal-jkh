@@ -20,7 +20,7 @@ class AddNewsController extends BaseTwigController
 	{
 		$title = $_POST['title'];
 		$info = $_POST['info'];
-		$date = date('Y-m-d H:i:s', time() + 28800);
+		$date = date('Y-m-d H:i:s', time() + 18000);
 		$image_tmp_url = $_FILES['image']['tmp_name'];
 		$image_name =  $_FILES['image']['name'];
 		$image_url = "/images/news/$image_name";

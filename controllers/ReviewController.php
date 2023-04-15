@@ -10,6 +10,10 @@ class ReviewController extends BaseTwigController
 	public function getContext(): array
 	{
 		$context = parent::getContext();
+
+		$query = $this->pdo->query("SELECT city FROM citys");
+		$context['regions'] = $query->fetchAll();
+
 		$context['company']  = $_GET['company'];
 		$city = $_GET['city'];
 		$start = $_GET['start'];
