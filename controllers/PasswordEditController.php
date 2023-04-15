@@ -10,10 +10,6 @@ class PasswordEditController extends BaseTwigController
     {
         $context = parent::getContext();
 
-        $context['temp_pass_old'] = $_SESSION['pass_old'];
-        $context['temp_pass_new'] = $_SESSION['pass_new'];
-        $context['temp_pass_new_repeat'] = $_SESSION['pass_new_repeat'];
-
         return $context;
     }
 
@@ -45,22 +41,13 @@ EOL;
 
                 $context['message'] = 'Пароль успешно изменён';
                 $context['color'] = 'success';
-                $_SESSION['pass_old'] = '';
-                $_SESSION['pass_new'] = '';
-                $_SESSION['pass_new_repeat'] = '';
             } else {
                 $context['message'] = 'Новые пароли не совпадают';
                 $context['color'] = 'warning';
-                $_SESSION['pass_old'] = $old_pass;
-                $_SESSION['pass_new'] = $new_pass;
-                $_SESSION['pass_new_repeat'] = $new_pass_repeat;
             }
         } else {
             $context['message'] = 'Текущий пароль не совпадает';
             $context['color'] = 'danger';
-            $_SESSION['pass_old'] = $old_pass;
-            $_SESSION['pass_new'] = $new_pass;
-            $_SESSION['pass_new_repeat'] = $new_pass_repeat;
         }
 
         $this->get($context);

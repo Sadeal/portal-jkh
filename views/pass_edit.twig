@@ -1,13 +1,15 @@
 {% extends "__layout.twig" %} {% block content %}
 <div class="container">
-  {% if message %}
+  {% if message and color == 'success' %}
   <div class="alert alert-{{ color }}">
     {{ message }}
-    {% if color == 'success' %}
     <a href="/">вернуться на главную</a>
-    {% endif %}
   </div>
-  {% else %}
+  {% else %} {% if message %}
+  <div class="alert alert-{{ color }}">
+    {{ message }}
+  </div>
+  {% endif %}
   <form enctype="multipart/form-data" method="POST" class="row g-3">
     <div
       class="d-flex flex-column justify-content-center text-center align-items-center"
@@ -23,7 +25,7 @@
             class="form-control position-relative"
             name="old"
             value="{{ temp_pass_old }}"
-            style="font-size: 19px"
+            style="font-size: 19px; border-radius: 7px"
           />
           <div class="input-group-append">
             <span
@@ -47,7 +49,7 @@
             class="form-control position-relative"
             name="new"
             value="{{ temp_pass_new }}"
-            style="font-size: 19px"
+            style="font-size: 19px; border-radius: 7px"
           />
           <div class="input-group-append">
             <span
@@ -71,7 +73,7 @@
             class="form-control position-relative"
             name="repeat"
             value="{{ temp_pass_new_repeat }}"
-            style="font-size: 19px"
+            style="font-size: 19px; border-radius: 7px"
           />
           <div class="input-group-append">
             <span
@@ -85,7 +87,7 @@
         </div>
       </div>
       <div class="col-12 text-center mt-4">
-        <button type="submit" class="btn btn-info">Изменить</button>
+        <button type="submit" class="btn-new">Изменить</button>
       </div>
     </div>
   </form>
@@ -98,6 +100,7 @@
     background: none;
     border: none;
     top: 15%;
+    z-index: 5;
   }
 </style>
 

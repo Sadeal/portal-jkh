@@ -1,10 +1,24 @@
 {% block content %}
 <link
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
   rel="stylesheet"
-  integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+/>
+<link
+  href="/source/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
   crossorigin="anonymous"
 />
+<link
+  rel="stylesheet"
+  href="https://outer.tealeaf.su/assets/3rdparty/all.min.css"
+/>
+<script
+  src="/source/js/bootstrap.bundle.min.js"
+  integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+  crossorigin="anonymous"
+></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Вход</title>
 <form class="vh-100 gradient-custom" method="POST">
@@ -13,7 +27,7 @@
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card bg-primary text-white" style="border-radius: 1rem">
           <a
-            class="text-start btn btn-light mt-2"
+            class="text-start btn-new mt-2"
             href="/"
             style="margin-left: 15; width: fit-content"
             >Вернуться на главную</a
@@ -39,12 +53,25 @@
                 <label class="form-label" for="typeLoginX">Логин</label>
               </div>
 
-              <div class="form-outline form-white mb-4">
+              <div class="input-group form-outline form-white mb-4">
                 <input
+                  id="pass_show"
                   type="password"
                   name="pass"
-                  class="form-control form-control-lg"
+                  class="form-control form-control-lg position-relative"
+                  style="font-size: 19px; border-radius: 7px"
                 />
+                <div class="input-group-append">
+                  <span
+                    class="input-group-text position-absolute eye"
+                    onclick="password_show_hide();"
+                  >
+                    <i class="fas fa-eye" id="show_eye"></i>
+                    <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+                  </span>
+                </div>
+              </div>
+              <div>
                 <label class="form-label" for="typePasswordX">Пароль</label>
               </div>
 
@@ -65,5 +92,33 @@
     </div>
   </div>
 </form>
+
+<style>
+  .eye {
+    right: 0;
+    background: none;
+    border: none;
+    top: 20%;
+    z-index: 5;
+  }
+</style>
+
+<script>
+  function password_show_hide() {
+    var x = document.getElementById("pass_show");
+    var show_eye = document.getElementById("show_eye");
+    var hide_eye = document.getElementById("hide_eye");
+    hide_eye.classList.remove("d-none");
+    if (x.type === "password") {
+      x.type = "text";
+      show_eye.style.display = "none";
+      hide_eye.style.display = "block";
+    } else {
+      x.type = "password";
+      show_eye.style.display = "block";
+      hide_eye.style.display = "none";
+    }
+  }
+</script>
 
 {% endblock %}

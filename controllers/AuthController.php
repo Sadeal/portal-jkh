@@ -20,9 +20,6 @@ class AuthController extends BaseTwigController
 			$_SESSION['email'] = '';
 			$_SESSION['address'] = '';
 			$_SESSION['login'] = '';
-			$_SESSION['pass_old'] = '';
-			$_SESSION['pass_new'] = '';
-			$_SESSION['pass_new_repeat'] = '';
 		} else if ($_SESSION['is_logged']) {
 			header('Location: /');
 		}
