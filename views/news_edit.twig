@@ -1,0 +1,43 @@
+{% extends "__layout.twig" %} {% block content %}
+<div class="container">
+  <h1>Изменение новости «{{ editObj.title }}» №{{ editObj.id }}</h1>
+  <hr />
+  {% if message %}
+  <div class="alert alert-info">
+    {{ message }}
+    <a href="/">Вернуться на главную</a>
+  </div>
+  {% else %}
+
+  <form enctype="multipart/form-data" method="POST" class="row g-3">
+    <div class="col-12">
+      <label class="form-label">Титул новости</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        value="{{ editObj.title }}"
+      />
+    </div>
+    <div class="col-12">
+      <label for="formFile" class="form-label">Изображение новости</label>
+      <input class="form-control" type="file" name="image" />
+    </div>
+    <div class="col-12">
+      <textarea
+        name="info"
+        placeholder="Информация"
+        class="form-control"
+        rows="5"
+        wrap="hard"
+        maxlength="300"
+        >{{ editObj.info }}</textarea
+      >
+    </div>
+    <div class="col-12 text-end">
+      <button type="submit" class="btn btn-info">Изменить</button>
+    </div>
+  </form>
+  {% endif %}
+</div>
+{% include('footer.twig') %} {% endblock %}

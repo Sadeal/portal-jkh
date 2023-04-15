@@ -1,0 +1,153 @@
+{% extends "__layout.twig" %} {% block content %}
+<div class="container">
+  {% if message %}
+  <div class="alert alert-{{ color }}">
+    {{ message }}
+    {% if color == 'success' %}
+    <a href="/">вернуться на главную</a>
+    {% endif %}
+  </div>
+  {% else %}
+  <form enctype="multipart/form-data" method="POST" class="row g-3">
+    <div
+      class="d-flex flex-column justify-content-center text-center align-items-center"
+    >
+      <div class="col-6">
+        <label class="form-label text-white" style="font-size: 19px"
+          >Текущий пароль</label
+        >
+        <div class="input-group">
+          <input
+            id="old"
+            type="password"
+            class="form-control position-relative"
+            name="old"
+            value="{{ temp_pass_old }}"
+            style="font-size: 19px"
+          />
+          <div class="input-group-append">
+            <span
+              class="input-group-text position-absolute eye"
+              onclick="password_show_hide_old();"
+            >
+              <i class="fas fa-eye" id="show_eye_old"></i>
+              <i class="fas fa-eye-slash d-none" id="hide_eye_old"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <label class="form-label text-white" style="font-size: 19px"
+          >Новый пароль</label
+        >
+        <div class="input-group">
+          <input
+            id="new"
+            type="password"
+            class="form-control position-relative"
+            name="new"
+            value="{{ temp_pass_new }}"
+            style="font-size: 19px"
+          />
+          <div class="input-group-append">
+            <span
+              class="input-group-text position-absolute eye"
+              onclick="password_show_hide_new();"
+            >
+              <i class="fas fa-eye" id="show_eye_new"></i>
+              <i class="fas fa-eye-slash d-none" id="hide_eye_new"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <label class="form-label text-white" style="font-size: 19px"
+          >Повторите новый пароль</label
+        >
+        <div class="input-group">
+          <input
+            id="repeat"
+            type="password"
+            class="form-control position-relative"
+            name="repeat"
+            value="{{ temp_pass_new_repeat }}"
+            style="font-size: 19px"
+          />
+          <div class="input-group-append">
+            <span
+              class="input-group-text position-absolute eye"
+              onclick="password_show_hide_repeat();"
+            >
+              <i class="fas fa-eye" id="show_eye_repeat"></i>
+              <i class="fas fa-eye-slash d-none" id="hide_eye_repeat"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 text-center mt-4">
+        <button type="submit" class="btn btn-info">Изменить</button>
+      </div>
+    </div>
+  </form>
+  {% endif %}
+</div>
+
+<style>
+  .eye {
+    right: 0;
+    background: none;
+    border: none;
+    top: 15%;
+  }
+</style>
+
+<script>
+  function password_show_hide_old() {
+    var x = document.getElementById("old");
+    var show_eye = document.getElementById("show_eye_old");
+    var hide_eye = document.getElementById("hide_eye_old");
+    hide_eye.classList.remove("d-none");
+    if (x.type === "password") {
+      x.type = "text";
+      show_eye.style.display = "none";
+      hide_eye.style.display = "block";
+    } else {
+      x.type = "password";
+      show_eye.style.display = "block";
+      hide_eye.style.display = "none";
+    }
+  }
+
+  function password_show_hide_new() {
+    var x = document.getElementById("new");
+    var show_eye = document.getElementById("show_eye_new");
+    var hide_eye = document.getElementById("hide_eye_new");
+    hide_eye.classList.remove("d-none");
+    if (x.type === "password") {
+      x.type = "text";
+      show_eye.style.display = "none";
+      hide_eye.style.display = "block";
+    } else {
+      x.type = "password";
+      show_eye.style.display = "block";
+      hide_eye.style.display = "none";
+    }
+  }
+
+  function password_show_hide_repeat() {
+    var x = document.getElementById("repeat");
+    var show_eye = document.getElementById("show_eye_repeat");
+    var hide_eye = document.getElementById("hide_eye_repeat");
+    hide_eye.classList.remove("d-none");
+    if (x.type === "password") {
+      x.type = "text";
+      show_eye.style.display = "none";
+      hide_eye.style.display = "block";
+    } else {
+      x.type = "password";
+      show_eye.style.display = "block";
+      hide_eye.style.display = "none";
+    }
+  }
+</script>
+{% include('footer.twig') %} {% endblock %}

@@ -1,0 +1,38 @@
+{% extends "__layout.twig" %} {% block content %}
+<div class="container">
+  <h1 class="text-white">Задать вопрос</h1>
+  <hr />
+  {% if message %}
+  <div class="alert alert-info">
+    {{ message }}
+    <a href="/">Вернуться на главную</a>
+  </div>
+  {% endif %}
+
+  <form enctype="multipart/form-data" method="POST" class="row g-3">
+    <div class="col-12">
+      <label class="form-label text-white" style="font-size: 19px"
+        >Титул вопроса</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        style="font-size: 19px"
+      />
+    </div>
+    <div class="col-12">
+      <textarea
+        name="info"
+        placeholder="Текст вопроса"
+        class="form-control"
+        rows="5"
+        style="font-size: 19px"
+      ></textarea>
+    </div>
+    <div class="col-12 text-end">
+      <button type="submit" class="btn btn-info">Задать вопрос</button>
+    </div>
+  </form>
+</div>
+{% include('footer.twig') %} {% endblock %}

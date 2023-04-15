@@ -1,0 +1,162 @@
+{% extends "__layout.twig" %} {% block content %}
+<div class="d-flex" style="margin-left: 12.5%; flex-wrap: wrap">
+  <div class="d-flex flex-column">
+    {% for object in news %}
+    <div
+      class="d-flex"
+      style="width: 75vw; margin-bottom: 14px; margin-right: 45px"
+    >
+      <div
+        class="list-group position-relative"
+        style="
+          outline: 1px solid rgba(255, 255, 255, 0.5);
+          border-radius: 10px;
+          padding: 5px;
+          margin-top: 15px;
+          width: 75vw;
+          max-height: 100000%;
+          height: 100%;
+          height: fit-content;
+          background: rgb(86, 83, 144);
+          background: linear-gradient(
+            90deg,
+            rgba(86, 83, 144, 1) 0%,
+            rgba(99, 96, 207, 1) 23%,
+            rgba(52, 63, 106, 1) 100%
+          );
+          cursor: pointer;
+        "
+        onclick=""
+      >
+        <div class="d-flex flex-row" style="justify-content: space-between">
+          <span style="color: lightgrey; font-size: 10px">{{
+            object.date
+          }}</span>
+          {% if is_admin %}
+          <div
+            class="position-absolute vis d-flex"
+            style="right: 4px; top: 4px"
+          >
+            <form action="/news/{{ object.id }}/edit" style="margin-right: 5px">
+              <button type="sumbit" class="btn btn-outline-warning">
+                <i class="fas fa-pen"></i>
+              </button>
+            </form>
+            <form action="/news/{{ object.id }}/delete" method="POST">
+              <button type="sumbit" class="btn btn-danger">
+                <i class="fas fa-times p-1"></i>
+              </button>
+            </form>
+          </div>
+          {% endif %}
+        </div>
+        <h5 style="color: white">{{ object.title }}</h5>
+        <hr class="hr hr-blurry hide" ></hr>
+        <div class="d-flex flex-column hide scrl">
+          {% if object.image != '/images/news/' %}
+          <img src="{{object.image}}" style="margin: auto; margin-bottom: 1%; margin-top: 1%; display:block; width: 66vw; height: 30vw; outline: 1px solid white; z-index: 1;">
+          </img>
+          {% endif %}
+          <span style=" display: block; white-space: pre-line; color: white;">{{
+            object.info
+          }}</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <div
+      class="d-flex flex-row justify-content-center mb-3"
+      style="width: 75vw"
+    >
+    {% if size > 1 %}
+      {% for i in range(0,size) %}
+      <a
+        class="btn btn-primary"
+        style="
+          margin-right: 5px;
+          background: rgb(51, 48, 119);
+          outline: 1px solid rgba(255, 255, 255, 0.5);
+        "
+        href="/?page={{ i + 1 }}"
+      >
+        {{ i + 1 }}
+      </a>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% include('footer.twig') %}
+<script>
+
+    $(document).ready(function() {
+      $('.list-group').children().on('click', function() {
+        $(this).parent().children().eq(2).toggleClass('hide');
+        $(this).parent().children().eq(2).toggleClass('appear');
+        $(this).parent().children().eq(3).toggleClass('hide');
+        $(this).parent().children().eq(3).toggleClass('overflow-auto');
+        $(this).parent().children().eq(3).toggleClass('appear');
+      });
+    });
+
+</script>
+<style>
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(99, 96, 207, 1);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(88, 63, 106, 1);
+  }
+
+  .hide {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    height: 0px;
+    max-height: 0em;
+  }
+  .appear {
+    max-height: 100vh;
+    transition: 0.5s ease-in-out;
+  }
+
+  .appear::after {
+    opacity: 1;
+    transition: 5s ease-in-out;
+  }
+
+  .card1 {
+    max-width: 150vh;
+    min-width: fit-content;
+    height: fit-content;
+    margin-bottom: 14px;
+    margin-right: 45px;
+  }
+
+  .vis {
+    transition: 0.5s;
+    opacity: 0;
+  }
+
+  .vis:hover {
+    transition: 1s;
+    opacity: 1;
+  }
+
+  .size {
+    width: 150vh;
+  }
+</style>
+{% endblock %}

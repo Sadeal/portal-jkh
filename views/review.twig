@@ -1,0 +1,77 @@
+{% extends "__layout.twig" %} {% block content %}
+<div class="container">
+  <h1 class="text-white">Список показаний счётчиков</h1>
+  <hr />
+  {% if message %}
+  <div class="alert alert-danger">
+    {{ message }}
+  </div>
+  {% endif %}
+  <form enctype="multipart/form-data" method="GET" class="row g-3 mb-3">
+    <div class="col-6">
+      <label class="form-label" style="color: white"
+        >Выберите населённый пункт</label
+      >
+      <input type="text" name="city" class="form-control" />
+    </div>
+    <div class="col-3">
+      <label class="form-label" style="color: white">Дата начала</label>
+      <input type="date" name="start" class="form-control" />
+    </div>
+    <div class="col-3">
+      <label class="form-label" style="color: white">Дата окончания</label>
+      <input type="date" name="end" class="form-control" />
+    </div>
+
+    <h5 class="mt-4 text-white" style="margin: 0;">Дополнительные параметры</h5>
+    <div class="col-6">
+      <label class="form-label" style="color: white"
+        >Номер лицевого счёта</label
+      >
+      <input type="text" name="account" class="form-control" />
+    </div>
+
+    <div class="col-6">
+      <label class="form-label" style="color: white">ФИО</label>
+      <input type="text" name="name" class="form-control" />
+    </div>
+
+    <div class="col-12 text-end mb-3">
+      <button type="submit" class="btn btn-info">Поиск</button>
+    </div>
+  </form>
+
+  <form enctype="multipart/form-data" method="POST" class="row g-3">
+    <div class="col-12 text-end mb-3">
+      <button type="submit" class="btn btn-success">Экспорт в excel</button>
+    </div>
+  </form>
+  <table
+    class="table table-hover table-info table-bordered table-striped"
+    style="text-align: center; width: 100%"
+  >
+    <thead>
+      <tr>
+        <th scope="col">Лицевой счёт</th>
+        <th style="width: 16.6%" scope="col">Горячая</th>
+        <th style="width: 16.6%" scope="col">Холодная</th>
+        <th style="width: 16.6%" scope="col">Населённый пункт</th>
+        <th style="width: 16.6%" scope="col">Адрес</th>
+        <th style="width: 16.6%" scope="col">Дата</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for data in result|reverse %}
+      <tr>
+        <th scope="row">{{ data.account }}</th>
+        <td>{{ data.hot }}</td>
+        <td>{{ data.cold }}</td>
+        <td>{{ data.city }}</td>
+        <td>{{ data.address }}</td>
+        <td>{{ data.date }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% include('footer.twig') %} {% endblock %}

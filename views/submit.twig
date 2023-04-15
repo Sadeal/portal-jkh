@@ -1,0 +1,38 @@
+{% extends "__layout.twig" %} {% block content %}
+<div class="container">
+  <h1 class="text-white">Подача показаний</h1>
+  <hr />
+
+  {% if message %}
+  <div class="alert alert-{{ type }}">
+    {{ message }}
+  </div>
+  {% endif %}
+
+  <form enctype="multipart/form-data" method="POST" class="row g-3">
+    <div class="col-6">
+      <label class="form-label text-white" style="font-size: 19px">Населённый пункт</label>
+      <select class="form-control" name="city" style="font-size: 19px">
+        {% for reg in regions %}
+        <option value="{{ reg[0] }}" {% if reg[0] == city %} selected {% endif %}>
+          {{ reg[0] }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-6"></div>
+    <div class="col-6">
+      <label class="form-label text-white" style="font-size: 19px">Показания холодной воды</label>
+      <input type="text" class="form-control" name="cold" style="font-size: 19px" />
+    </div>
+    <div class="col-6">
+      <label class="form-label text-white" style="font-size: 19px">Показания горячей воды</label>
+      <input type="text" class="form-control" name="hot" style="font-size: 19px" />
+    </div>
+
+    <div class="col-12 text-end">
+      <button type="submit" class="btn btn-info">Отправить данные</button>
+    </div>
+  </form>
+</div>
+{% include('footer.twig') %} {% endblock %}

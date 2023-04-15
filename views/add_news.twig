@@ -1,0 +1,37 @@
+{% extends "__layout.twig" %} {% block content %}
+<div class="container">
+  <h1 class="text-white">Добавить новость</h1>
+  <hr />
+
+  {% if message %}
+  <div class="alert alert-info">
+    {{ message }}
+  </div>
+  {% else %}
+
+  <form enctype="multipart/form-data" method="POST" class="row g-3">
+    <div class="col-12">
+      <label class="form-label text-white">Титул новости</label>
+      <input type="text" class="form-control" name="title" />
+    </div>
+    <div class="col-12">
+      <label for="formFile" class="form-label">Добавьте изображение</label>
+      <input class="form-control" type="file" name="image" />
+    </div>
+    <div class="col-12">
+      <textarea
+        name="info"
+        placeholder="Информация"
+        class="form-control"
+        rows="5"
+        wrap="hard"
+        maxlength="300"
+      ></textarea>
+    </div>
+    <div class="col-12 text-end">
+      <button type="submit" class="btn btn-info">Добавить</button>
+    </div>
+  </form>
+  {% endif %}
+</div>
+{% include('footer.twig') %} {% endblock %}

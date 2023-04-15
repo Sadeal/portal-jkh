@@ -1,0 +1,28 @@
+{% extends "__layout.twig" %} {% block content %}
+<div class="container">
+  <h1 class="text-white">История показаний</h1>
+  <hr />
+
+  <table
+    class="table table-bordered table-striped table-info"
+    style="text-align: center; width: 100%"
+  >
+    <thead>
+      <tr>
+        <th scope="width: 25%" scope="col">Горячая</th>
+        <th style="width: 25%" scope="col">Холодная</th>
+        <th style="width: 50%" scope="col">Дата</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for count in counts|reverse %}
+      <tr>
+        <td>{{ count.hot }}</td>
+        <td>{{ count.cold }}</td>
+        <td>{{ count.date }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% include('footer.twig') %} {% endblock %}

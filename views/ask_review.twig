@@ -1,0 +1,60 @@
+{% extends "__layout.twig" %} {% block content %}
+<div class="container">
+  <h1 class="text-white">Вопросы населения</h1>
+  <hr />
+  {% if message %}
+  <div class="alert alert-info">
+    {{ message }}
+  </div>
+  {% endif %}
+
+  <table
+    class="table table-bordered table-striped table-info"
+    style="text-align: center; width: 100%"
+  >
+    <thead>
+      <tr>
+        <th scope="col">ФИО</th>
+        <th style="width: 10%" scope="col">Лицевой счёт</th>
+        <th style="width: 10%" scope="col">Почта</th>
+        <th style="width: 7%" scope="col">Телефон</th>
+        <th
+          style="width: 20%; max-width: 150px; word-wrap: break-word"
+          scope="col"
+        >
+          Титул
+        </th>
+        <th
+          style="width: 40%; max-width: 150px; word-wrap: break-word"
+          scope="col"
+        >
+          Вопрос
+        </th>
+        <th style="width: 5%" scope="col">Дата</th>
+        <th style="width: 5%" scope="col">Состояние</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for data in result %}
+      <tr>
+        <th scope="row">{{ data.name }}</th>
+        <td>{{ data.account }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.phone }}</td>
+        <td>{{ data.title }}</td>
+        <td>{{ data.info }}</td>
+        <td>{{ data.date }}</td>
+        <td>
+          <form enctype="multipart/form-data" method="POST">
+            <button type="submit" class="btn btn-info">
+              Отметить отвеченным
+            </button>
+            <input name="id" type="hidden" value="{{ data.id }}" />
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% include('footer.twig') %} {% endblock %}
