@@ -59,7 +59,7 @@ EOL;
 									$context['message'] = 'Введите номер лицевого счёта!';
 								} else {
 									if (!$check) {
-										$context['message'] = 'Примите соглашение о обработке персональных данных!';
+										$context['message'] = 'Примите соглашение об обработке персональных данных!';
 									} else {
 										$sql = <<<EOL
 	INSERT INTO users (login, pass, name, phone, email, city, address, account, type)
