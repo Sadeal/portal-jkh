@@ -24,16 +24,35 @@
     <div class="col-6"></div>
     <div class="col-6">
       <label class="form-label text-white" style="font-size: 19px">Показания холодной воды</label>
-      <input type="text" class="form-control" name="cold" style="font-size: 19px" />
+      <input type="text" class="typo form-control" name="cold" style="font-size: 19px" onkeypress='validate(event)'/>
     </div>
     <div class="col-6">
       <label class="form-label text-white" style="font-size: 19px">Показания горячей воды</label>
-      <input type="text" class="form-control" name="hot" style="font-size: 19px" />
+      <input type="text" class="typo form-control" name="hot" style="font-size: 19px" onkeypress='validate(event)'/>
     </div>
-
     <div class="col-12 text-end">
       <button type="submit" class="btn-new">Отправить данные</button>
     </div>
   </form>
 </div>
+
+<script>
+  function validate(evt) {
+    var theEvent = evt || window.event;
+
+    // Handle paste
+    if (theEvent.type === 'paste') {
+        key = event.clipboardData.getData('text/plain');
+    } else {
+    // Handle key press
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+    }
+    var regex = /[0-9]/;
+    if( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
+</script>
 {% include('footer.twig') %} {% endblock %}
