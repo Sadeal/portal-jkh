@@ -29,9 +29,18 @@
         onclick=""
       >
         <div class="d-flex flex-row" style="justify-content: space-between">
-          <span style="color: lightgrey; font-size: 10px">{{
-            object.date
-          }}</span>
+          {% if object.update_date != '0000-00-00 00:00:00' %}
+            <span style="color: lightgrey; font-size: 10px">{{
+              object.date}}
+            </span>
+            <span style="color: lightgrey; font-size: 10px">
+              (изм. {{ object.update_date}} )
+            </span>
+          {% else %}
+            <span style="color: lightgrey; font-size: 10px">{{
+              object.date
+            }}</span>
+          {% endif %}
           {% if is_admin %}
           <div
             class="position-absolute vis d-flex"

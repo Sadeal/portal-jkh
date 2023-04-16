@@ -49,8 +49,8 @@ EOL;
 					if ($name == '') {
 						$context['message'] = 'Введите ФИО!';
 					} else {
-						if ($city == '') {
-							$context['message'] = 'Введите название места проживания!';
+						if ($city == '-') {
+							$context['message'] = 'Выберите населённый пункт!';
 						} else {
 							if ($address == '') {
 								$context['message'] = 'Введите адрес проживания!';

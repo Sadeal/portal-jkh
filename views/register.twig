@@ -49,6 +49,7 @@
                   class="form-control form-control-lg"
                   name="phone"
                   value="{{ regData[3] }}"
+                  onkeypress='validate(event)'
                 />
               </div>
 
@@ -65,6 +66,7 @@
               <label class="form-label" for="typeLoginX">Населённый пункт</label>
               <div class="form-outline form-white mb-4">
                 <select class="form-control" name="city">
+                  <option value="-" >-</option>
                   {% for reg in regions %}
                   <option value="{{ reg[0] }}" {% if reg[0] == regData[5] %} selected {% endif %}>
                     {{ reg[0] }}
@@ -95,6 +97,7 @@
                   class="form-control form-control-lg"
                   name="account"
                   value="{{ regData[7] }}"
+                  onkeypress='validate(event)'
                 />
               </div>
 
@@ -126,5 +129,25 @@
     </div>
   </div>
 </form>
+
+<script>
+  function validate(evt) {
+    var theEvent = evt || window.event;
+
+    // Handle paste
+    if (theEvent.type === 'paste') {
+        key = event.clipboardData.getData('text/plain');
+    } else {
+    // Handle key press
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+    }
+    var regex = /[0-9]/;
+    if( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
+</script>
 
 {% endblock %}

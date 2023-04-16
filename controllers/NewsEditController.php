@@ -27,6 +27,7 @@ class NewsEditController extends BaseTwigController
 		$id = $this->params['id'];
 		$title = $_POST['title'];
 		$info = $_POST['info'];
+		$update_date = date('Y-m-d H:i:s', time() + 18000);
 
 		$image_tmp_url = $_FILES['image']['tmp_name'];
 		$image_name =  $_FILES['image']['name'];
@@ -37,25 +38,27 @@ class NewsEditController extends BaseTwigController
 
 			$sql = <<<EOL
 UPDATE news
-SET title = :title, image = :image_url, info = :info
+SET title = :title, image = :image_url, info = :info, update_date = :update_date
 WHERE id = :id
 EOL;
 			$query = $this->pdo->prepare($sql);
 			$query->bindValue("title", $title);
 			$query->bindValue("image_url", $image_url);
 			$query->bindValue("info", $info);
+			$query->bindValue('update_date', $update_date);
 			$query->bindValue("id", $id);
 
 			$query->execute();
 		} else {
 			$sql = <<<EOL
 UPDATE news
-SET title = :title, info = :info
+SET title = :title, info = :info, update_date = :update_date
 WHERE id = :id
 EOL;
 			$query = $this->pdo->prepare($sql);
 			$query->bindValue("title", $title);
 			$query->bindValue("info", $info);
+			$query->bindValue('update_date', $update_date);
 			$query->bindValue("id", $id);
 
 			$query->execute();
