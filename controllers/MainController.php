@@ -35,4 +35,9 @@ class MainController extends BaseTwigController
 
         return $context;
     }
+
+    public function post(array $context)
+    {
+        $this->get($context);
+    }
 }
