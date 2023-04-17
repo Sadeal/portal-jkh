@@ -8,8 +8,7 @@
     {{ message }}
     <a href="/">Вернуться на главную</a>
   </div>
-  {% endif %}
-
+  {% else %}
   <form enctype="multipart/form-data" method="POST" class="row g-3">
     <div class="col-6">
       <label class="form-label text-white" style="font-size: 19px">Населённый пункт</label>
@@ -34,6 +33,7 @@
       <button type="submit" class="btn-new">Отправить данные</button>
     </div>
   </form>
+  {% endif %}
 </div>
 
 <script>
