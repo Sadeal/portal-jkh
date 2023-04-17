@@ -16,6 +16,9 @@ class SubmitController extends BaseTwigController
 		$context['regions'] = $query->fetchAll();
 		$context['title'] = "Подача показаний";
 
+		//if (date('d', time() + 18000) >= 25 && date('d', time() + 18000) <= 31)
+		echo date('d', time() + 18000);
+
 		return $context;
 	}
 
@@ -23,6 +26,15 @@ class SubmitController extends BaseTwigController
 	{
 		$cold = $_POST['cold'];
 		$hot = $_POST['hot'];
+
+		while ($cold[0] == '0') {
+			$cold = substr($cold, 1);
+		}
+
+		while ($hot[0] == '0') {
+			$hot = substr($hot, 1);
+		}
+
 		if (is_numeric($cold) and is_numeric($hot)) {
 			$account = $_SESSION['account'];
 			$city = $_SESSION['city'];
