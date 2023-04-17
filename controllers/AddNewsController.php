@@ -9,8 +9,6 @@ class AddNewsController extends BaseTwigController
 	public function getContext(): array
 	{
 		$context = parent::getContext();
-		// $query = $this->pdo->query("SELECT * FROM types");
-		// $context['allTypes'] = $query->fetchAll();
 		$context['title'] = "Добавить новость";
 
 		return $context;
@@ -26,11 +24,6 @@ class AddNewsController extends BaseTwigController
 		$image_url = "/images/news/$image_name";
 
 		move_uploaded_file($image_tmp_url, "../public/images/news/$image_name");
-
-		// $tmp_name = $_FILES['image']['tmp_name'];
-		// $name =  $_FILES['image']['name'];
-		// move_uploaded_file($tmp_name, "../public/images/$name");
-		// $image_url = "/images/$name";
 
 		$sql = <<<EOL
 INSERT INTO news (title, image, info, date)

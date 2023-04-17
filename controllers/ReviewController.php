@@ -258,23 +258,16 @@ EOL;
 		}
 
 		$column_names = false;
-		// run loop through each row in $customers_data
+
 		foreach ($context['result'] as $row) {
 			if (!$column_names) {
 				echo implode("\t", array_keys($row)) . "\n";
 				$column_names = true;
 			}
-			// The array_walk() function runs each array element in a user-defined function.
+
 			array_walk($row, 'filterCustomerData');
 			echo implode("\t", array_values($row)) . "\n";
 		}
-
-		// $out = fopen("php://output", 'w');
-		// foreach ($context['result'] as $data) {
-		// 	fputcsv($out, $data, "\t");
-		// }
-		// fclose($out);
-
 		$this->get($context);
 	}
 }

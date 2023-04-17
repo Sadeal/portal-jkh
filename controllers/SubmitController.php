@@ -16,9 +16,6 @@ class SubmitController extends BaseTwigController
 		$context['regions'] = $query->fetchAll();
 		$context['title'] = "Подача показаний";
 
-		//if (date('d', time() + 18000) >= 25 && date('d', time() + 18000) <= 31)
-		echo date('d', time() + 18000);
-
 		return $context;
 	}
 
