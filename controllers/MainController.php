@@ -12,8 +12,10 @@ class MainController extends BaseTwigController
 
 
         $size = $this->pdo->query("SELECT count(id) FROM news");
+        $size = $size->fetchAll()[0][0] / 10;
 
-        $context['size'] = $size->fetchAll()[0][0] / 10;
+        $context['size'] = $size > floor($size) ? floor($size) + 1 : floor($size);
+
 
         $page = isset($_GET['page']) ? $_GET['page'] : 1;
         if ($page && is_numeric($page)) {
@@ -26,6 +28,17 @@ class MainController extends BaseTwigController
             exit;
         }
         $first = $page * 10 - 10;
+        if ($context['size'] > 7) {
+            $start = $page - 3;
+            $end = $page + 2;
+            if ($end >= $context['size']) {
+                $start = $start - ($end - $context['size']) - 1;
+                $end = $context['size'] - 1;
+            }
+            $context['start'] = $start;
+            $context['end'] = $end;
+        }
+        $context['page'] = $page;
 
         $query = $this->pdo->query("SELECT * FROM news ORDER BY id desc LIMIT $first, 10");
 

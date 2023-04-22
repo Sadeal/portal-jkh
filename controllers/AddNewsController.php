@@ -26,8 +26,8 @@ class AddNewsController extends BaseTwigController
 		move_uploaded_file($image_tmp_url, "../public/images/news/$image_name");
 
 		$sql = <<<EOL
-INSERT INTO news (title, image, info, date)
-VALUES (:title, :image_url, :info, :date)
+INSERT INTO news (title, image, info, date, update_date)
+VALUES (:title, :image_url, :info, :date, :update_date)
 EOL;
 
 		$query = $this->pdo->prepare($sql);
@@ -35,6 +35,7 @@ EOL;
 		$query->bindValue("image_url", $image_url);
 		$query->bindValue("info", $info);
 		$query->bindValue("date", $date);
+		$query->bindValue("update_date", '0000-00-00 00:00:00');
 
 		$query->execute();
 

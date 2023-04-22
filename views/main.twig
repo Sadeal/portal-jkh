@@ -61,7 +61,7 @@
           <img class="container" src="{{object.image}}" style="margin: auto; margin-bottom: 1%; margin-top: 1%; display:block; width: fit-content; max-height: 100%; max-width: 100%; z-index: 1;">
           </img>
           {% endif %}
-          <span style="display: block; white-space:pre; color: white;">{{
+          <span style="display: block; white-space:pre-line; color: white;">{{
             object.info
           }}</span>
         </div>
@@ -72,22 +72,22 @@
       class="d-flex flex-row justify-content-center mb-3"
       style="width: 75vw"
     >
-      {% if size > 1 and size < 6 %}
-        {% for i in range(0,size) %}
-        <a
-          class="btn-new"
-          style="
-            margin-right: 5px;
-            outline: 1px solid rgba(255, 255, 255, 0.5);
-          "
-          href="/?page={{ i + 1 }}"
-        >
-          {{ i + 1 }}
-        </a>
-        {% endfor %}
-      {% else %}
-        {% if size > 5 %}
-          {% for i in range(0,5) %}
+    {% if size > 1 %}
+      {% if size < 7 %}
+        {% for i in range(0,size - 1) %}
+          {% if i == page - 1 %}
+          <a
+            class="btn-new"
+            style="
+              margin-right: 5px;
+              outline: 1px solid rgba(255, 255, 255, 0.5);
+              background: rgb(83, 180, 253);
+              "
+            href="/?page={{ i + 1 }}"
+          >
+            {{ i + 1 }}
+          </a>
+          {% else %}
           <a
             class="btn-new"
             style="
@@ -98,9 +98,84 @@
           >
             {{ i + 1 }}
           </a>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% if page > 4 %}
+          <a
+            class="btn-new"
+            style="
+              margin-right: 5px;
+              outline: 1px solid rgba(255, 255, 255, 0.5);
+            "
+            href="/?page=1"
+          >
+            1
+          </a>
+          <a
+            class="btn-new"
+            style="
+              margin-right: 5px;
+              outline: 1px solid rgba(255, 255, 255, 0.5);
+
+            "
+          >...</a>
+          {% for i in range(start, end) %}
+            {% if i == page - 1 %}
+            <a
+              class="btn-new"
+              style="
+                margin-right: 5px;
+                outline: 1px solid rgba(255, 255, 255, 0.5);
+                background: rgb(83, 180, 253);
+              "
+              href="/?page={{ i + 1 }}"
+            >
+              {{ i + 1 }}
+            </a>
+            {% else %}
+            <a
+              class="btn-new"
+              style="
+                margin-right: 5px;
+                outline: 1px solid rgba(255, 255, 255, 0.5);
+              "
+              href="/?page={{ i + 1 }}"
+            >
+              {{ i + 1 }}
+            </a>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          {% for i in range(0, 6) %}
+            {% if i == page - 1 %}
+              <a
+                class="btn-new"
+                style="
+                  margin-right: 5px;
+                  outline: 1px solid rgba(255, 255, 255, 0.5);
+                  background: rgb(83, 180, 253);
+                "
+                href="/?page={{ i + 1 }}"
+              >
+                {{ i + 1 }}
+              </a>
+              {% else %}
+              <a
+                class="btn-new"
+                style="
+                  margin-right: 5px;
+                  outline: 1px solid rgba(255, 255, 255, 0.5);
+                "
+                href="/?page={{ i + 1 }}"
+              >
+                {{ i + 1 }}
+              </a>
+              {% endif %}
           {% endfor %}
         {% endif %}
       {% endif %}
+    {% endif %}
     </div>
   </div>
 </div>
