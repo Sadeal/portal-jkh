@@ -39,6 +39,10 @@
                   name="login"
                   value="{{ regData[0] }}"
                 />
+                <label
+                class="form-label"
+                style="color: rgb(200, 200, 200); font-size: 10px"
+                >(придумайте свой логин, на любом языке)</label>
               </div>
 
               <label class="form-label" for="typeLoginX">ФИО</label>
@@ -49,6 +53,10 @@
                   name="name"
                   value="{{ regData[2] }}"
                 />
+                <label
+                class="form-label"
+                style="color: rgb(200, 200, 200); font-size: 10px"
+                >(укажите ФИО собственника)</label>
               </div>
 
               <label class="form-label" for="typeLoginX">Телефон</label>
@@ -60,9 +68,13 @@
                   value="{{ regData[3] }}"
                   onkeypress='validate(event)'
                 />
+                <label
+                class="form-label"
+                style="color: rgb(200, 200, 200); font-size: 10px"
+                >(укажите свой номер телефона в формате 89991234567)</label>
               </div>
 
-              <label class="form-label" for="typeLoginX">Почта</label>
+              <label class="form-label" for="typeLoginX">Электронная почта</label>
               <div class="form-outline form-white mb-4">
                 <input
                   type="text"
@@ -70,6 +82,10 @@
                   name="email"
                   value="{{ regData[4] }}"
                 />
+                <label
+                class="form-label"
+                style="color: rgb(200, 200, 200); font-size: 10px"
+                >(на этот адрес будут приходить различные уведомления и ответы на вопросы)</label>
               </div>
 
               <label class="form-label" for="typeLoginX">Населённый пункт</label>
@@ -95,8 +111,7 @@
                 <label
                 class="form-label"
                 style="color: rgb(200, 200, 200); font-size: 10px"
-                >(улица, дом, квартира)</label
-              >
+                >(улица, дом, квартира)</label>
               </div>
 
               <label class="form-label" for="typeLoginX">Номер лицевого счёта</label>
@@ -108,6 +123,10 @@
                   value="{{ regData[7] }}"
                   onkeypress='validate(event)'
                 />
+                <label
+                class="form-label"
+                style="color: rgb(200, 200, 200); font-size: 10px"
+                >(можете узнать его по тел. +7 924 711-12-27)</label>
               </div>
 
               <label class="form-label" for="typePasswordX">Пароль</label>
@@ -118,6 +137,10 @@
                   class="form-control form-control-lg"
                   value="{{ regData[1] }}"
                 />
+                <label
+                class="form-label"
+                style="color: rgb(200, 200, 200); font-size: 10px"
+                >(придумайте свой пароль)</label>
               </div>
               <div class="form-check">
                 <input id="check" type="checkbox" name="check" class="form-check-input">

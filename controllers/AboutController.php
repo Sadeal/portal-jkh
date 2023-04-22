@@ -9,8 +9,8 @@ class AboutController extends BaseTwigController
 	public function getContext(): array
 	{
 		$context = parent::getContext();
-		$context['title'] = "О нас";
-
+		$context['about_company'] = $_GET['company'];
+		$context['title'] = "О наших компаниях";
 		return $context;
 	}
 

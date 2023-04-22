@@ -1,15 +1,422 @@
 {% extends "__layout.twig" %} {% block content %}
-<div
-  style="
-    width: 100vw;
-    height: 0px;
-    outline: 1px solid rgba(255, 255, 255, 0.5);
-    margin-top: 20px;
-  "
-></div>
-<div class="container">
-  <span style="white-space: pre-line; text-align: center; color: white">
-    О КОМПАНИИ ООО "УК "УШАКОВСКАЯ"
+
+  <div
+    style="
+      width: 100vw;
+      height: 0px;
+      outline: 1px solid rgba(255, 255, 255, 0.5);
+      margin-top: 20px;
+    "
+  ></div>
+  <div class="rowed d-flex">
+  <div class="d-flex flex-column" style="width:fit-content justify-content-center">
+    <a type="button" class="btn btn-light" style="margin-top: 10px; margin-left: 20px; margin-right: 20px" href="?company=Ушаковская">ООО "Ушаковская"</a>
+    <a type="button" class="btn btn-light" style="margin-top: 10px; margin-left: 20px; margin-right: 20px" href="?company=Чистые ключи">ООО "Чистые ключи"</a>
+    <a type="button" class="btn btn-light" style="margin-top: 10px; margin-left: 20px; margin-right: 20px" href="?company=Сервис">ООО "Сервис"</a>
+    <a type="button" class="btn btn-light" style="margin-top: 10px; margin-left: 20px; margin-right: 20px" href="?company=УК Ушаковская">ООО "УК "Ушаковская"</a>
+    <a type="button" class="btn btn-light" style="margin-top: 10px; margin-left: 20px; margin-right: 20px" href="?company=БИП">ООО "БИП"</a>
+    <a type="button" class="btn btn-light" style="margin-top: 10px; margin-left: 20px; margin-right: 20px" href="?company=ОКС">ООО "ОКС"</a>
+    <a type="button" class="btn btn-light" style="margin-top: 10px; margin-left: 20px; margin-right: 20px" href="?company=Акватроника">ООО "Акватроника"</a>
+  </div>
+  <div class="container">
+
+
+{% if about_company == 'Ушаковская' %}
+  <span style="white-space: pre-line; color: white">
+    Здесь будет текст о деятельности компании ООО "Ушаковская"
+    <table
+      class="table table-bordered"
+      style="text-align: center; width: 40%; color: white; background: rgba(0,0,0,0.3)"
+    >
+      <thead>
+        <tr>
+          <th style="width: 25%" scope="col">Анкета организации</th>
+          <th style="width: fit-content" scope="col">Реквизиты</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Фирменное наименование организации</td>
+          <td>Общество с ограниченной ответственностью «Ушаковская»</td>
+        </tr>
+        <tr>
+          <td>Юридический адрес</td>
+          <td>664511,Иркутская область, с.Пивовариха ул.Муруйская,7</td>
+        </tr>
+        <tr>
+          <td>Почтовый адрес</td>
+          <td>664511,Иркутская область, с.Пивовариха ул.Муруйская,7</td>
+        </tr>
+        <tr>
+          <td>ИНН, КПП, ОГРН, банковские реквизиты расчетный счет.</td>
+          <td>ИНН 3827026265, КПП 382701001, ОГРН 1073827002941,
+            Р/сч 40702810844000763001
+            Сибирский филиал ПАО «Промсвязьбанк»
+             г. Новосибирск
+            БИК 045004816
+            К/сч 30101810500000000816
+            </td>
+        </tr>
+        <tr>
+          <td>Телефоны (с указанием кода города)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Факс (с указанием кода города)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Адрес электронной почты </td>
+          <td>ushackovsckaya@yandex.ru</td>
+        </tr>
+        <tr>
+          <td>Контактное лицо (ФИО)</td>
+          <td>Корабенков Дмитрий Александрович</td>
+        </tr>
+      </tbody>
+    </table>
   </span>
+{% endif %}
+
+{% if about_company == 'Чистые ключи' %}
+  <span style="white-space: pre-line; text-align: center; color: white">
+    Здесь будет текст о деятельности компании ООО "Чистые ключи"
+  </span>
+  <table
+      class="table table-bordered"
+      style="text-align: center; width: 100%; color: white; background: rgba(0,0,0,0.3)"
+    >
+      <thead>
+        <tr>
+          <th style="width: 25%" scope="col">Анкета организации</th>
+          <th style="width: 50%" scope="col">Реквизиты</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Фирменное наименование организации</td>
+          <td>Общество с ограниченной ответственностью «Чистые Ключи»</td>
+        </tr>
+        <tr>
+          <td>Юридический адрес</td>
+          <td>664511,Иркутская область, с.Пивовариха ул.Муруйская,7</td>
+        </tr>
+        <tr>
+          <td>Почтовый адрес</td>
+          <td>664511,Иркутская область, с.Пивовариха ул.Муруйская,7</td>
+        </tr>
+        <tr>
+          <td>ИНН, КПП, ОГРН, банковские реквизиты расчетный счет.</td>
+          <td>ИНН 3827051906, КПП382701001, ОГРН 1163850086685,
+            Р/сч 40702810404000019616
+            Сибирский филиал ПАО «Промсвязьбанк»
+             г. Новосибирск
+            БИК 045004816
+            К/сч 30101810500000000816
+            </td>
+        </tr>
+        <tr>
+          <td>Телефоны (с указанием кода города)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Факс (с указанием кода города)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Адрес электронной почты </td>
+          <td>ch_key@mail.ru</td>
+        </tr>
+        <tr>
+          <td>Контактное лицо (ФИО)</td>
+          <td>Корабенков Дмитрий Александрович</td>
+        </tr>
+      </tbody>
+    </table>
+{% endif %}
+
+{% if about_company == 'Сервис' %}
+  <span style="white-space: pre-line; text-align: center; color: white">
+    Здесь будет текст о деятельности компании ООО "Сервис"
+  </span>
+  <table
+      class="table table-bordered"
+      style="text-align: center; width: 100%; color: white; background: rgba(0,0,0,0.3)"
+    >
+      <thead>
+        <tr>
+          <th style="width: 25%" scope="col">Анкета организации</th>
+          <th style="width: 50%" scope="col">Реквизиты</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Фирменное наименование организации</td>
+          <td>Общество с ограниченной ответственностью «Сервис» (ООО «Сервис»)</td>
+        </tr>
+        <tr>
+          <td>Юридический адрес</td>
+          <td>664511, Иркутская обл., Иркутский район, с. Пивовариха, ул. Муруйская, д. 7</td>
+        </tr>
+        <tr>
+          <td>Почтовый адрес</td>
+          <td>664511, Иркутская обл., Иркутский район, с. Пивовариха, ул. Муруйская, д. 7</td>
+        </tr>
+        <tr>
+          <td>ИНН, КПП, ОГРН, ОКПО.</td>
+          <td>ИНН 3808189673
+            КПП 382701001
+            ОГРН 1153850018167
+            ОКПО 33260466
+            </td>
+        </tr>
+        <tr>
+          <td>Телефоны (с указанием кода города)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Факс (с указанием кода города)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Контактное лицо (ФИО)</td>
+          <td>Корабенков Дмитрий Александрович</td>
+        </tr>
+      </tbody>
+    </table>
+{% endif %}
+
+{% if about_company == 'УК Ушаковская' %}
+  <span style="white-space: pre-line; text-align: center; color: white">
+    Здесь будет текст о деятельности компании ООО "УК "УШАКОВСКАЯ"
+  </span>
+  <table
+      class="table table-bordered"
+      style="text-align: center; width: 100%; color: white; background: rgba(0,0,0,0.3)"
+    >
+      <thead>
+        <tr>
+          <th style="width: 25%" scope="col">Анкета организации</th>
+          <th style="width: 50%" scope="col">Реквизиты</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Фирменное наименование организации</td>
+          <td>Общество с ограниченной ответственностью «УК  «Ушаковская»</td>
+        </tr>
+        <tr>
+          <td>Юридический адрес</td>
+          <td>664511,Иркутская область,  Иркутский р-н, с. Пивовариха, ул. Муруйская,7</td>
+        </tr>
+        <tr>
+          <td>Почтовый адрес</td>
+          <td>664511,Иркутская область,  Иркутский р-н, с. Пивовариха, ул. Муруйская,7</td>
+        </tr>
+        <tr>
+          <td>ИНН, КПП, ОГРН, банковские реквизиты расчетный счет.</td>
+          <td>ИНН 3827034065
+            КПП 382701001
+            ОГРН 1103827000045
+            Сибирский ф-л ПАО «Промсвязьбанк»
+            г. Новосибирск
+            БИК 045004816
+            р/счёт 40702810184000878601
+            корр. счёт 30101810500000000816
+          </td>
+        </tr>
+        <tr>
+          <td>Телефоны (с указанием кода города)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Факс (с указанием кода города)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Адрес электронной почты </td>
+          <td>ushackovsckaya@yandex.ru</td>
+        </tr>
+        <tr>
+          <td>Контактное лицо (ФИО)</td>
+          <td>Попов Евгений Николаевич ИНН 381112815203</td>
+        </tr>
+      </tbody>
+    </table>
+{% endif %}
+
+{% if about_company == 'БИП' %}
+  <span style="white-space: pre-line; text-align: center; color: white">
+    Здесь будет текст о деятельности компании ООО "Байкальский Институт Проектирования"
+  </span>
+  <table
+      class="table table-bordered"
+      style="text-align: center; width: 100%; color: white; background: rgba(0,0,0,0.3)"
+    >
+      <thead>
+        <tr>
+          <th style="width: 25%" scope="col">Анкета организации</th>
+          <th style="width: 50%" scope="col">Реквизиты</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Фирменное наименование организации</td>
+          <td>Общество с ограниченной ответственностью «Байкальский институт проектирования» (ООО «Байкальский институт проектирования»)</td>
+        </tr>
+        <tr>
+          <td>Юридический адрес</td>
+          <td>664511, Иркутский р-н, с. Пивовариха, ул. Муруйская, 7</td>
+        </tr>
+        <tr>
+          <td>Почтовый адрес</td>
+          <td>664033, г. Иркутск, ул. Улан-Баторская, 1, оф. 225</td>
+        </tr>
+        <tr>
+          <td>ИНН, КПП, ОГРН, банковские реквизиты расчетный счет.</td>
+          <td>ИНН 3827042620 КПП 382701001
+            ОГРН 1133850023889
+            Сибирский филиал ПАО «Промсвязьбанк» г.Новосибирск
+            р/с  40702810504000005407 к/с 30101810500000000816
+            БИК 045004816
+            </td>
+        </tr>
+        <tr>
+          <td>Телефоны (с указанием кода города)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Адрес электронной почты </td>
+          <td>irpsd@mail.ru</td>
+        </tr>
+        <tr>
+          <td>Контактное лицо (ФИО)</td>
+          <td>Просвирнин Игорь Николаевич</td>
+        </tr>
+      </tbody>
+    </table>
+{% endif %}
+
+{% if about_company == 'ОКС' %}
+  <span style="white-space: pre-line; text-align: center; color: white">
+    Здесь будет текст о деятельности компании ООО "ОКС"
+  </span>
+  <table
+      class="table table-bordered"
+      style="text-align: center; width: 100%; color: white; background: rgba(0,0,0,0.3)"
+    >
+      <thead>
+        <tr>
+          <th style="width: 25%" scope="col">Анкета организации</th>
+          <th style="width: 50%" scope="col">Реквизиты</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Фирменное наименование организации</td>
+          <td>Общество с ограниченной ответственностью «Окружные коммунальные системы» (ООО «ОКС»)</td>
+        </tr>
+        <tr>
+          <td>Юридический адрес</td>
+          <td>669311, Иркутская область, Боханский район, п. Бохан, ул. Доржи Банзарова, 7г</td>
+        </tr>
+        <tr>
+          <td>Почтовый адрес</td>
+          <td>669311, Иркутская область, Боханский район, п. Бохан, ул. Доржи Банзарова, 7г</td>
+        </tr>
+        <tr>
+          <td>ИНН, КПП, ОГРН, банковские реквизиты расчетный счет.</td>
+          <td>ИНН 3849036789
+            КПП 384901001
+            ОГРН 1143850024900
+            Наименование обслуживающего банка	Сибирский филиал ПАО «Промсвязьбанк» г. Новосибирск
+            Расчетный счет	40702810304000009506
+            Корреспондентский счет	30101810500000000816
+            БИК	045004816
+            </td>
+        </tr>
+        <tr>
+          <td>Телефоны (с указанием кода города)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Факс (с указанием кода города)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Контактное лицо (ФИО)</td>
+          <td>Попов Евгений Николаевич</td>
+        </tr>
+      </tbody>
+    </table>
+{% endif %}
+
+{% if about_company == 'Акватроника' %}
+  <span style="white-space: pre-line; text-align: center; color: white">
+    Здесь будет текст о деятельности компании ООО "Акватроника"
+  </span>
+  <table
+      class="table table-bordered"
+      style="text-align: center; width: 100%; color: white; background: rgba(0,0,0,0.3)"
+    >
+      <thead>
+        <tr>
+          <th style="width: 25%" scope="col">Анкета организации</th>
+          <th style="width: 50%" scope="col">Реквизиты</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Фирменное наименование организации</td>
+          <td>Общество с ограниченной ответственностью «АКВАТРОНИКА»ООО «АКВАТРОНИКА»</td>
+        </tr>
+        <tr>
+          <td>Юридический адрес</td>
+          <td>666322, Иркутская область, г. Заларинский район, р.п. Залари, ул. Карла Маркса, д.67</td>
+        </tr>
+        <tr>
+          <td>Почтовый адрес</td>
+          <td>664511, Иркутская область, с. Пивовариха, ул Муруйская, д 7</td>
+        </tr>
+        <tr>
+          <td>ИНН, КПП, ОГРН, банковские реквизиты расчетный счет.</td>
+          <td>ИНН/КПП: 	3814039122/381401001
+            ОГРН:	1203800000777
+            Р/сч 40702810000030087245 в Красноярском  ф-ле АКБ «Ланта-Банк» г. Красноярск
+            БИК 040407702
+            К/сч 30101810000000000702
+            </td>
+        </tr>
+        <tr>
+          <td>Факс (с указанием кода города)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Адрес электронной почты </td>
+          <td>akvatronika@yandex.ru</td>
+        </tr>
+        <tr>
+          <td>Контактное лицо (ФИО)</td>
+          <td>Корабенков Дмитрий Александрович</td>
+        </tr>
+      </tbody>
+    </table>
+{% endif %}
 </div>
+</div>
+
+<style>
+  .table {
+    width: 50% !important;
+    margin: auto;
+  }
+
+  @media (max-width: 481px) {
+      .rowed { flex-direction: column; }
+    }
+
+  @media (min-width: 481px) {
+    .rowed { flex-direction: row; text-align: center;}
+  }
+</style>
 {% include('footer.twig') %} {% endblock %}

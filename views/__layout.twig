@@ -27,28 +27,17 @@
   </head>
   <body
     style="
-    background: rgb(86, 83, 144);
-    background: linear-gradient(
-     90deg,
-      rgba(86, 83, 144, 1) 0%,
-      rgba(99, 96, 207, 1) 23%,
-      rgba(52, 63, 106, 1) 100%
-    );
+      background: linear-gradient( rgba(100, 100, 100, 0.5), rgba(0, 0, 0, 0.5) ), url('./images/backgrounds/background.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: top;
     box-sizing: border-box;
     "
   >
     {% if is_logged %} {% if not is_mob and not is_tab %}
     <nav
       class="navbar navbar-expand-lg"
-      style="
-        background: rgb(86, 83, 144);
-        background: linear-gradient(
-          90deg,
-          rgba(86, 83, 144, 1) 0%,
-          rgba(99, 96, 207, 1) 23%,
-          rgba(52, 63, 106, 1) 100%
-        );
-      "
     >
       <div class="container">
         <div class="navbar-collapse" id="navbarNav" style="width:100%">
@@ -178,15 +167,6 @@
     {% else %}
     <nav
       class="navbar navbar-expand-lg navbar-light"
-      style="
-        background: rgb(86, 83, 144);
-        background: linear-gradient(
-          90deg,
-          rgba(86, 83, 144, 1) 0%,
-          rgba(99, 96, 207, 1) 23%,
-          rgba(52, 63, 106, 1) 100%
-        );
-      "
     >
       <div class="container">
         <div
@@ -205,7 +185,7 @@
             />
           </a>
           <a
-            class="text-main m-2 badge badge-light"
+            class="text-main m-2 badge badge-dark"
             href="/"
             style="text-decoration: none; font-size: auto"
           > Единая диспетчерская служба
@@ -278,15 +258,6 @@
     {% endif %} {% else %}
     <nav
       class="navbar navbar-expand-lg navbar-light"
-      style="
-        background: rgb(86, 83, 144);
-        background: linear-gradient(
-          90deg,
-          rgba(86, 83, 144, 1) 0%,
-          rgba(99, 96, 207, 1) 23%,
-          rgba(52, 63, 106, 1) 100%
-        );
-      "
     >
       <div class="container">
         <div
@@ -308,7 +279,7 @@
             <a
               class="text-del m-2 badge badge-light"
               href="/"
-              style="text-decoration: none; font-size: 16px"
+              style="text-decoration: none; font-size: 16px;"
             > Единая диспетчерская служба
             </a>
           </div>
@@ -316,13 +287,13 @@
             <ul class="navbar-nav mr-auto" style="width: 100%">
               <div class="d-flex flex-row" style="display: inline-block">
                 <a
-                  class="btn btn-info"
+                  class="btn btn-light login"
                   style="margin-right: 5px"
                   href="/login"
                 >
-                  Войти
+                  Войти в личный кабинет
                 </a>
-                <a class="btn btn-success" href="/register"> Регистрация </a>
+                <a class="btn btn-success register" href="/register"> Регистрация в личном кабинете </a>
               </div>
             </ul>
           </div>
@@ -331,14 +302,22 @@
     </nav>
     <script>
       const text_delete = document.getElementsByClassName('text-del');
+      const login = document.getElementsByClassName('login');
+      const register = document.getElementsByClassName('register');
       if(text_delete[0]){
-        if(window.screen.width<=560 && window.screen.width>=365 ){
+        if(window.screen.width<=991 && window.screen.width>=365 ){
           text_delete[0].textContent = 'ЕДС';
+          login[0].textContent = 'Войти';
+          register[0].textContent = 'Регистрация'
         } else {
           if(window.screen.width<365 ){
             text_delete[0].textContent = '';
+            login[0].textContent = 'Войти';
+            register[0].textContent = 'Регистрация'
           } else {
             text_delete[0].textContent = 'Единая диспетчерская служба';
+            login[0].textContent = 'Войти в личный кабинет';
+            register[0].textContent = 'Регистрация в личном кабинете'
           }
         }
       }
@@ -670,11 +649,11 @@
     }
 
     @media (min-width: 481px) {
-      .text-main { content: 'Единая диспетчерская служба' }
+      .text-main { content: 'Единая диспетчерская служба' };
     }
 
     @media (max-width: 481px) {
-      .text-main { content: 'ЕДС' }
+      .text-main { content: 'ЕДС' };
     }
   </style>
 </html>

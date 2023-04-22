@@ -17,7 +17,6 @@ require_once "../controllers/NewsDeleteController.php";
 require_once "../controllers/AskController.php";
 require_once "../controllers/AskReviewController.php";
 require_once "../controllers/PolicyController.php";
-require_once "../controllers/ContactsController.php";
 require_once "../controllers/AboutController.php";
 require_once "../middleware/LoginRequiredMiddleware.php";
 require_once "../middleware/LoginRequiredUserMiddleware.php";
@@ -41,13 +40,14 @@ $_SESSION['name'];
 
 $twig->addExtension(new \Twig\Extension\DebugExtension());
 
+//$pdo = new PDO("mysql:host=localhost;dbname=j71325138_counts;charset=utf8", "j71325138", "PASS");
+
 $pdo = new PDO("mysql:host=localhost;dbname=counters;charset=utf8", "root", "");
 $router = new Router($twig, $pdo);
 $router->add("/login", AuthController::class);
 $router->add("/register", RegisterController::class);
 $router->add("/", MainController::class);
 $router->add("/policy", PolicyController::class);
-$router->add("/contacts", ContactsController::class);
 $router->add("/about", AboutController::class);
 $router->add("/account", AccountController::class)
     ->middleware((new LoginRequiredUserMiddleware));

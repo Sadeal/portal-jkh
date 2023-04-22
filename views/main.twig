@@ -14,16 +14,11 @@
           padding: 5px;
           margin-top: 15px;
           width: 75vw;
+          max-width: 75vw;
           max-height: 100000%;
-          height: 100%;
           height: fit-content;
-          background: rgb(86, 83, 144);
-          background: linear-gradient(
-            90deg,
-            rgba(86, 83, 144, 1) 0%,
-            rgba(99, 96, 207, 1) 23%,
-            rgba(52, 63, 106, 1) 100%
-          );
+          background: rgb(102,100,154);
+          background: linear-gradient(90deg, rgba(102,100,154,1) 0%, rgba(98,109,154,1) 100%);
           cursor: pointer;
         "
         onclick=""
@@ -63,10 +58,10 @@
         <hr class="hr hr-blurry hide" ></hr>
         <div class="d-flex flex-column hide scrl">
           {% if object.image != '/images/news/' %}
-          <img src="{{object.image}}" style="margin: auto; margin-bottom: 1%; margin-top: 1%; display:block; width: 66vw; height: 30vw; outline: 1px solid white; z-index: 1;">
+          <img class="container" src="{{object.image}}" style="margin: auto; margin-bottom: 1%; margin-top: 1%; display:block; width: fit-content; max-height: 100%; max-width: 100%; z-index: 1;">
           </img>
           {% endif %}
-          <span style=" display: block; white-space: pre-line; color: white;">{{
+          <span style="display: block; white-space:pre; color: white;">{{
             object.info
           }}</span>
         </div>
