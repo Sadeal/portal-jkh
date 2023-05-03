@@ -305,7 +305,7 @@
       const login = document.getElementsByClassName('login');
       const register = document.getElementsByClassName('register');
       if(text_delete[0]){
-        if(window.screen.width<=991 && window.screen.width>=365 ){
+        if(window.screen.width<=992 && window.screen.width>=365 ){
           text_delete[0].textContent = 'ЕДС';
           login[0].textContent = 'Войти';
           register[0].textContent = 'Регистрация'
@@ -350,7 +350,8 @@
       return $(window).scrollTop() < $(elem).offset().top + $(elem).height() ;
     };
     const elem = document.getElementById("static-btn");
-      if ("ontouchstart" in document.documentElement) {
+    const enter = document.getElementsByClassName("login");
+      if ("ontouchstart" in document.documentElement && !enter[0]) {
       $(window).scroll(function(){
         if (elementInView($('.close'))){
           $(elem).addClass("viewable-out");
