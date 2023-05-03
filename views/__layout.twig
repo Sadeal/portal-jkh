@@ -64,7 +64,7 @@
                   href="/"
                   style="text-decoration: none; font-size: 16px"
                 >
-                  Единая диспетчерская служба
+                  Портал ЖКХ
                 </a>
                 {% if not is_admin %}
                 <div class="vr m-2"></div>
@@ -136,7 +136,7 @@
                     {{ user_login }}
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownUserLink">
-                    <a class="dropdown-item" href="/"> Главная</a>
+                    <a class="dropdown-item" href="/">Главная</a>
                     {% if not is_admin %}
                     <a class="dropdown-item" href="/account">
                       Личный кабинет
@@ -188,7 +188,7 @@
             class="text-main m-2 badge badge-dark"
             href="/"
             style="text-decoration: none; font-size: auto"
-          > Единая диспетчерская служба
+          > Портал ЖКХ
           </a>
           <div id="navbarNav">
             <ul class="close navbar-nav mr-auto" style="width: 100%">
@@ -280,7 +280,7 @@
               class="text-del m-2 badge badge-light"
               href="/"
               style="text-decoration: none; font-size: 16px;"
-            > Единая диспетчерская служба
+            > Портал ЖКХ
             </a>
           </div>
           <div id="navbarNav">
@@ -305,17 +305,17 @@
       const login = document.getElementsByClassName('login');
       const register = document.getElementsByClassName('register');
       if(text_delete[0]){
-        if(window.screen.width<=992 && window.screen.width>=365 ){
-          text_delete[0].textContent = 'ЕДС';
+        if(window.screen.width<=772 && window.screen.width>=423 ){
+          text_delete[0].textContent = 'Портал ЖКХ';
           login[0].textContent = 'Войти';
           register[0].textContent = 'Регистрация'
         } else {
-          if(window.screen.width<365 ){
+          if(window.screen.width<423 ){
             text_delete[0].textContent = '';
             login[0].textContent = 'Войти';
             register[0].textContent = 'Регистрация'
           } else {
-            text_delete[0].textContent = 'Единая диспетчерская служба';
+            text_delete[0].textContent = 'Портал ЖКХ';
             login[0].textContent = 'Войти в личный кабинет';
             register[0].textContent = 'Регистрация в личном кабинете'
           }
@@ -366,10 +366,10 @@
 
     const text_short = document.getElementsByClassName('text-main');
     if(text_short[0]){
-      if(window.screen.width<=380){
-        text_short[0].textContent = 'ЕДС';
+      if(window.screen.width<=240){
+        text_short[0].textContent = '';
       } else {
-        text_short[0].textContent = 'Единая диспетчерская служба';
+        text_short[0].textContent = 'Портал ЖКХ';
       }
     }
   </script>
@@ -647,14 +647,6 @@
       -ms-flex-align: center;
       align-items: center;
       height: 100%;
-    }
-
-    @media (min-width: 481px) {
-      .text-main { content: 'Единая диспетчерская служба' };
-    }
-
-    @media (max-width: 481px) {
-      .text-main { content: 'ЕДС' };
     }
   </style>
 </html>

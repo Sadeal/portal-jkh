@@ -4,7 +4,7 @@ require_once "BaseTwigController.php";
 class MainController extends BaseTwigController
 {
     public $template = "main.twig";
-    public $title = "Главная";
+    public $title = "ПОРТАЛ ЖКХ";
 
     public function getContext(): array
     {
@@ -44,7 +44,7 @@ class MainController extends BaseTwigController
 
         $context['news'] = $query->fetchAll();
         $context['is_admin'] = $_SESSION['is_logged_admin'];
-        $context['title'] = 'Главная';
+        $context['title'] = 'Портал ЖКХ';
 
         return $context;
     }
