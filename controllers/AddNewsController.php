@@ -21,7 +21,7 @@ class AddNewsController extends BaseTwigController
 		$date = date('Y-m-d H:i:s', time() + 18000);
 		$image_tmp_url = $_FILES['image']['tmp_name'];
 		$image_name =  $_FILES['image']['name'];
-		$image_url = "/images/news/$image_name";
+		$image_url = "/public/images/news/$image_name";
 
 		move_uploaded_file($image_tmp_url, "../public/images/news/$image_name");
 

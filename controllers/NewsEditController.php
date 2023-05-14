@@ -32,7 +32,7 @@ class NewsEditController extends BaseTwigController
 		$image_tmp_url = $_FILES['image']['tmp_name'];
 		$image_name =  $_FILES['image']['name'];
 		if ($image_name) {
-			$image_url = "/images/news/$image_name";
+			$image_url = "/public/images/news/$image_name";
 
 			move_uploaded_file($image_tmp_url, "../public/images/news/$image_name");
 
